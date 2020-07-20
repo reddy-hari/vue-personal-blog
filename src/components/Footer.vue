@@ -2,7 +2,9 @@
   <div>
     <section id="footer">
       <div class="container">
+
         <div class="row text-center text-xs-center text-sm-left text-md-left">
+
           <div class="col-xs-12 col-sm-4 col-md-4">
             <h5>Quick links</h5>
             <ul class="list-unstyled quick-links">
@@ -93,70 +95,68 @@
               </li>
             </ul>
           </div>
+
         </div>
+
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
             <ul class="list-unstyled list-inline social text-center">
               <li class="list-inline-item">
-                <a href="https://www.fiverr.com/share/qb8D02">
+                <a href="https://www.facebook.com/harireddy05">
                   <i class="fa fa-facebook"></i>
                 </a>
               </li>
               <li class="list-inline-item">
-                <a href="https://www.fiverr.com/share/qb8D02">
+                <a href="https://twitter.com/harireddy05">
                   <i class="fa fa-twitter"></i>
                 </a>
               </li>
               <li class="list-inline-item">
-                <a href="https://www.fiverr.com/share/qb8D02">
+                <a href="https://www.instagram.com/kreativemanifests/">
                   <i class="fa fa-instagram"></i>
                 </a>
               </li>
               <li class="list-inline-item">
-                <a href="https://www.fiverr.com/share/qb8D02">
-                  <i class="fa fa-google-plus"></i>
+                <a href="https://500px.com/kreativemanifests">
+                  <i class="fa fa-500px"></i>
                 </a>
               </li>
               <li class="list-inline-item">
-                <a href="https://www.fiverr.com/share/qb8D02" target="_blank">
+                <a href="mailto:kreativemanifests@gmail.com">
                   <i class="fa fa-envelope"></i>
                 </a>
               </li>
             </ul>
           </div>
-          <hr />
         </div>
+
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-            <p>
-              <u>
-                <a href="https://www.nationaltransaction.com/">National Transaction Corporation</a>
-              </u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]
-            </p>
-            <p class="h6">
-              © All right Reversed.
-              <a
-                class="text-green ml-2"
-                href="https://www.sunlimetech.com"
-                target="_blank"
-              >Sunlimetech</a>
-            </p>
+            <p>{{kmsFooterInfo}}</p>
+            <p class="h6">{{rightsReserved}} | {{siteName}}</p>
           </div>
-          <hr />
         </div>
+
       </div>
     </section>
+
   </div>
 </template>
 
 <script>
+import {commonText} from '../mixins/CommonText.js';
 export default {
-  name: "Footer"
+  name: "Footer",
+  mixins: [commonText],
+  data() {
+    return {      
+      
+    };
+  }
 };
 </script>
 
 <style scoped>
-/* Footer */
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 section {
   padding: 60px 0;

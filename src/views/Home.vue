@@ -3,14 +3,14 @@
     <div style="text-align: center; padding-top: 20px;">
       <h2>
         Welcome to
-        <span class="title-style">Kreative Manifests</span>
+        <span class="title-style">{{siteName}}</span>
         Studios
       </h2>
-      <p class="subtitle-style">a space inspired by vissicitudes.</p>
+      <p class="subtitle-style">{{siteMoto}}</p>
     </div>
 
     <!-- The App Section -->
-    <div class="container">
+    <div class="container" style="padding: 5">
       <div class="row">
         <div class="column-66">
           <h1 class="xlarge-font">
@@ -30,29 +30,34 @@
       </div>
     </div>
 
-    <!-- Clarity Section -->
-    <div style="background-color:#f1f1f1">
-      <div class="row container">
-        <div class="column-33">
-          <img src="../assets/logo.png" alt="App" width="335" height="471" />
-        </div>
-        <div class="column-66">
-          <h1 class="xlarge-font">
-            <b>Clarity</b>
-          </h1>
-          <h1 class="large-font" style="color:red;">
-            <b>Pixels, who?</b>
-          </h1>
-          <p>
-            <span style="font-size:24px">A revolution in resolution.</span> Sharp and clear photos with the world's best photo engine, incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          </p>
-          <button class="button" style="background-color:red">Read More</button>
+    <!-- Blog Intro Section -->
+    <div>
+      <div class="container" style="padding: 0">
+        <div class="row container">
+          <div class="column-33">
+            <img src="../assets/mics-img.png" alt="App" width="335" height="471" />
+          </div>
+          <div class="column-66">
+            <h1 class="large-font">
+              <b>Opinions</b>
+            </h1>
+            <h2 class="medium-font" style="color:#007b5e">
+              <b>The Column</b>
+            </h2>
+            <p style="padding-left: 15px; padding-right: 15px">
+              <span style="font-size:20px">When Graffiti manifests,</span>
+              {{blogIntro}}
+            </p>
+            <router-link to="/blog">
+              <button class="button" style="background-color:#007b5e">Blog</button>
+            </router-link>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- The App Section -->
-    <div class="container">
+    <!-- The Insta Feature Section -->
+    <div class="container" style="padding: 5">
       <div class="row">
         <div class="column-66">
           <h1 class="xlarge-font">
@@ -62,21 +67,28 @@
             <b>Why buy it?</b>
           </h1>
           <p>
-            <span style="font-size:36px">Take photos like a pro.</span> You should buy this app because lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            <span style="font-size:36px">Take photos like a pro.</span> You should buy this app because lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           </p>
           <button class="button">Download Application</button>
         </div>
         <div class="column-33">
-          <img src="../assets/logo.png" width="335" height="471" />
+          <InstaFeature/>
         </div>
       </div>
     </div>
+
   </div>
 </template>
 
 <script>
+import { commonText } from "../mixins/CommonText";
+import InstaFeature from "../embeds/InstaFeature";
 export default {
-  name: "Home"
+  name: "Home",
+  mixins: [commonText],
+  components: {
+    InstaFeature
+  }
 };
 </script>
 
@@ -126,7 +138,7 @@ body {
   padding: 14px 28px;
   font-size: 16px;
   cursor: pointer;
-  background-color: #4caf50;
+  background-color: #007b5e;
 }
 
 img {

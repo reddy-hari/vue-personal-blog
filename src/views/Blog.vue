@@ -4,26 +4,15 @@
       <div v-block-padding:title="{topP: '20px', bottomP: '30px'}">
         <h1>{{blogPageTitle | toPascalCase}}</h1>
       </div>
-
       <div class="container">
         <div class="row">
-          <div v-blog-preview>Column</div>
-          <div v-blog-preview>Column</div>
-          <div v-blog-preview>Column</div>
-          <div v-blog-preview>Column</div>
-          <div v-blog-preview>Column</div>
-          <div v-blog-preview>Column</div>
-          <div v-blog-preview>Column</div>
-          <div v-blog-preview>Column</div>
+          <div :key="post.id" v-blog-preview v-for="post in info">
+            <div style="font-weight: bold">{{post.title}}</div>            
+            <div>{{post.body}}</div>
+            <hr />
+          </div>
         </div>
       </div>
-
-      <div :key="post.id" v-for="post in info">
-        <div style="font-weight: bold">{{post.title}}</div>
-        <div>{{post.body}}</div>
-        <hr />
-      </div>
-      
     </div>
     <div v-else v-block-padding:loading="{topP: '150px', bottomP: '1000px'}">Loading ...</div>
   </div>
@@ -71,7 +60,8 @@ export default {
     "blog-preview": {
       bind(el) {
         el.padding = "10px";
-        el.classList.add("col-3");
+        el.classList.add("col-md-3");
+        el.classList.add("col-sm-6");
       }
     }
   }
