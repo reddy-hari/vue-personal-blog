@@ -14,6 +14,10 @@
     <!-- Carousel -->
     <div class="carousel">
       <HomeBlockOne />
+      <div class="subtitle-style" style="padding: 50px 50px 0px 50px;">
+        <img src="../assets/km-logo-gray.svg" class="center-an-image" style="width: 2.5%; padding-bottom: 20px" alt="km-logo" />
+        <div>{{blogIntroII}}</div>
+      </div>
     </div>
 
     <!-- Section Sample -->
@@ -91,7 +95,6 @@
           <InstaFriends />
         </div>
       </div>
-
     </div>
   </div>
 </template>
@@ -182,15 +185,21 @@ img {
 .site-banner {
   color: #9a9da0;
   text-align: center;
-  height: 200px;
+  height: 400px;
   padding-top: 5px;
   background-image: url("../assets/universe.gif");
 }
 
-.carousel{
+.carousel {
   padding: 0px;
   margin-bottom: 40px;
-  margin-top: -70px;
+  margin-top: -250px;
+}
+
+.center-an-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media screen and (max-width: 1000px) {

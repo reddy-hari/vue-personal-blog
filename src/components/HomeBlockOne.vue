@@ -9,8 +9,12 @@
       <div class="w3-display-middle w3-large w3-container w3-padding-16 w3-black">Wilderness</div>
     </div>
     <div class="w3-display-container mySlides">
-      <img src="../assets/poor-girl.png" style="width:100%" />
-      <div class="w3-display-middle w3-large w3-container w3-padding-16 w3-black">Concrete Jungle</div>
+      <img src="../assets/monkey-feeding.png" style="width:100%" />
+      <div class="w3-display-middle w3-large w3-container w3-padding-16 w3-black">Wildlife</div>
+    </div>
+    <div class="w3-display-container mySlides">
+      <img src="../assets/daynight-sky.png" style="width:100%" />
+      <div class="w3-display-middle w3-large w3-container w3-padding-16 w3-black">Nature</div>
     </div>
 
     <button class="w3-button w3-display-left w3-black" @click="plusDivs(-1)">&#10094;</button>

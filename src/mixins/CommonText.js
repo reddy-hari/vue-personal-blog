@@ -9,10 +9,11 @@ export const commonText = {
             blogIntro: `the essence of life is felt, which in truth,
                         is often somewhere lost in the rush
                         of what we have come to believe as commonplace!`,
-            blogIntroAddon: `Articles here, a conjuring from abstract, are attempts 
-                        to change that, and restore the order of learning 
+            blogIntroII: `Anything here, a conjuring from abstract, are attempts 
+                        to better the way we look at life, restore the order of learning 
                         and sharing the right values that would make this 
-                        world a better place. Here's to keeping alive the belief 
+                        world a better place!`,
+            blogIntroIII: `Here's to keeping alive the belief 
                         that there’s enough good to go around 
                         and to protect it!`
         }
