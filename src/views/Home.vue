@@ -1,24 +1,31 @@
 <template>
   <div>
-    <div style="text-align: center; padding-top: 20px;">
-      <h2>
-        Welcome to
-        <span class="title-style">{{siteName}}</span>
-        Studios
-      </h2>
-      <p class="subtitle-style">{{siteMoto}}</p>
+    <div class="site-banner">
+      <div style="padding-top: 0px">
+        <h2>
+          Welcome to
+          <span class="title-style">{{siteName}}</span>
+          Studios
+        </h2>
+        <p class="subtitle-style">{{siteMoto}}</p>
+      </div>
     </div>
 
-    <!-- The App Section -->
-    <div class="container" style="padding: 5">
+    <!-- Carousel -->
+    <div style="padding: 0">
+      <HomeBlockOne />
+    </div>
+
+    <!-- Section Sample -->
+    <!-- <div class="container">
       <div class="row">
         <div class="column-66">
-          <h1 class="xlarge-font">
-            <b>The App</b>
+          <h1 class="large-font">
+            <b>Opinions</b>
           </h1>
-          <h1 class="large-font" style="color:MediumSeaGreen;">
-            <b>Why buy it?</b>
-          </h1>
+          <h2 class="medium-font text-primary">
+            <b>The Column</b>
+          </h2>
           <p>
             <span style="font-size:36px">Take photos like a pro.</span> You should buy this app because lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           </p>
@@ -28,66 +35,83 @@
           <img src="../assets/logo.png" width="335" height="471" />
         </div>
       </div>
-    </div>
+    </div>-->
+
+    <hr />
 
     <!-- Blog Intro Section -->
     <div>
       <div class="container" style="padding: 0">
-        <div class="row container">
+        <div class="row">
           <div class="column-33">
-            <img src="../assets/mics-img.png" alt="App" width="335" height="471" />
+            <img src="../assets/mics-img.png" alt="Blog-Intro" width="335" height="471" />
           </div>
-          <div class="column-66">
-            <h1 class="large-font">
-              <b>Opinions</b>
-            </h1>
-            <h2 class="medium-font" style="color:#007b5e">
-              <b>The Column</b>
+          <div class="column-66" style="text-align: left">
+            <h2 class="large-font" style="padding-top: 30px;">
+              <b>Opinions</b> |
+              <span class="medium-font text-primary">
+                <b>The Column</b>
+              </span>
             </h2>
-            <p style="padding-left: 15px; padding-right: 15px">
+
+            <p style="padding: 15px">
               <span style="font-size:20px">When Graffiti manifests,</span>
               {{blogIntro}}
             </p>
-            <router-link to="/blog">
-              <button class="button" style="background-color:#007b5e">Blog</button>
+
+            <router-link to="/blog" style="padding: 15px">
+              <button class="button" style="background-color: #007BFF;">Read the Blog</button>
             </router-link>
           </div>
         </div>
       </div>
     </div>
 
+    <hr />
+
     <!-- The Insta Feature Section -->
-    <div class="container" style="padding: 5">
+    <div class="container" style="padding: 0">
+      <h2 class="large-font" style="padding-top: 30px; padding-bottom: 20px;">
+        <span style="color:#007BFF">
+          <b>The Visuals</b>
+        </span> |
+        <span>
+          <span>Check out my Insta!</span>
+        </span>
+      </h2>
+
       <div class="row">
-        <div class="column-66">
-          <h1 class="xlarge-font">
-            <b>The App</b>
-          </h1>
-          <h1 class="large-font" style="color:MediumSeaGreen;">
-            <b>Why buy it?</b>
-          </h1>
-          <p>
-            <span style="font-size:36px">Take photos like a pro.</span> You should buy this app because lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </p>
-          <button class="button">Download Application</button>
+        <div class="column-33">
+          <InstaLohgad />
         </div>
         <div class="column-33">
-          <InstaFeature/>
+          <InstaBean />
+        </div>
+        <div class="column-33">
+          <InstaFriends />
         </div>
       </div>
-    </div>
 
+    </div>
   </div>
 </template>
 
 <script>
 import { commonText } from "../mixins/CommonText";
-import InstaFeature from "../embeds/InstaFeature";
+import InstaBean from "../embeds/InstaBean";
+import InstaLohgad from "../embeds/InstaLohgad";
+import InstaFriends from "../embeds/InstaFriends";
+
+import HomeBlockOne from "../components/HomeBlockOne";
+
 export default {
   name: "Home",
   mixins: [commonText],
   components: {
-    InstaFeature
+    InstaBean,
+    InstaLohgad,
+    InstaFriends,
+    HomeBlockOne
   }
 };
 </script>
@@ -138,7 +162,7 @@ body {
   padding: 14px 28px;
   font-size: 16px;
   cursor: pointer;
-  background-color: #007b5e;
+  background-color: #007bff;
 }
 
 img {
@@ -153,6 +177,14 @@ img {
 
 .subtitle-style {
   font-family: "Courier New", Courier, monospace;
+}
+
+.site-banner {
+  color: #9a9da0;
+  text-align: center;
+  height: 200px;
+  padding-top: 5px;
+  background-image: url("../assets/universe.gif");
 }
 
 @media screen and (max-width: 1000px) {

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="n-bg">
+    <nav class="navbar navbar-expand-lg">
       <button
         class="navbar-toggler"
         type="button"
@@ -32,16 +32,16 @@
         <form class="form-inline my-2 my-lg-0">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
-              <router-link class="nav-link" to="/">Home</router-link>
+              <router-link class="nav-link n-link" to="/">Home</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="/photo-gallery">Gallery</router-link>
+              <router-link class="nav-link n-link" to="/photo-gallery">Gallery</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="/blog">Blog</router-link>
+              <router-link class="nav-link n-link" to="/blog">Blog</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="/about">About</router-link>
+              <router-link class="nav-link n-link" to="/about">About</router-link>
             </li>
           </ul>
         </form>
@@ -65,6 +65,13 @@ export default {
 .title-style {
   text-decoration: none;
   padding: 10px;
+  color: #CCCECF;
+}
+.n-bg {
+  background-image: url("../assets/universe.gif");
+}
+.n-link{
+  text-decoration: none;
   color: #CCCECF;
 }
 </style>
