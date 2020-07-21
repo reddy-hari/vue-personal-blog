@@ -12,7 +12,7 @@
     </div>
 
     <!-- Carousel -->
-    <div style="padding: 0">
+    <div class="carousel">
       <HomeBlockOne />
     </div>
 
@@ -185,6 +185,12 @@ img {
   height: 200px;
   padding-top: 5px;
   background-image: url("../assets/universe.gif");
+}
+
+.carousel{
+  padding: 0px;
+  margin-bottom: 40px;
+  margin-top: -70px;
 }
 
 @media screen and (max-width: 1000px) {
