@@ -12,6 +12,7 @@
     "core-js": "^3.6.5",
     "css-loader": "^3.6.0",
     "file-loader": "^6.0.0",
+    "jw-vue-pagination": "^1.0.3",
     "style-loader": "^1.2.1",
     "url-loader": "^4.1.0",
     "vue": "^2.6.11",

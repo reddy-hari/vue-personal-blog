@@ -1,8 +1,12 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router';
 
-Vue.config.productionTip = false
+import JwPagination from 'jw-vue-pagination';
+
+Vue.config.productionTip = false;
+
+Vue.component('jw-pagination', JwPagination);
 
 new Vue({
   router,
