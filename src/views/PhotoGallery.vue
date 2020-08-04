@@ -1,27 +1,669 @@
 <template>
-  <div class="padThirty">
-    <div class="container">
-      <div class="row">
-        <div class="col">1 of 2</div>
-        <div class="col">2 of 2</div>
+  <div>
+    <div>
+      <div class="imgLoader"></div>
+
+      <div class="container">
+        <!-- <h1 class="title">Check out the album!</h1> -->
+
+        <div class="book">
+          <div class="gap"></div>
+          <div class="pages">
+            <div class="page"></div>
+            <div class="page"></div>
+            <div class="page"></div>
+            <div class="page"></div>
+            <div class="page"></div>
+            <div class="page"></div>
+          </div>
+          <div class="flips">
+            <div class="flip flip1">
+              <div class="flip flip2">
+                <div class="flip flip3">
+                  <div class="flip flip4">
+                    <div class="flip flip5">
+                      <div class="flip flip6">
+                        <div class="flip flip7"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="row">
-        <div class="col">1 of 3</div>
-        <div class="col">2 of 3</div>
-        <div class="col">3 of 3</div>
-      </div>
+    </div>
+    <!-- Child -->
+    <div>
+      <app-masonry-view></app-masonry-view>
     </div>
   </div>
 </template>
 
 <script>
+import MasonryView from "./MasonryView.vue";
 export default {
-  name: "Landing"
+  name: "Gallery",
+  components: {
+    appMasonryView: MasonryView,
+  },
 };
 </script>
 
 <style scoped>
-.padThirty {
-  padding: 30px;
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+
+* {
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Indie Flower", cursive;
+  background-color: #eee;
+  color: #555;
+  text-align: center;
+  padding: 4em 0;
+}
+
+.imgLoader {
+  position: fixed;
+  animation: preLoad 1s steps(1);
+  width: 1px;
+  height: 1px;
+}
+@keyframes preLoad {
+  0% {
+    background-image: url("../assets/crimson-rail.jpg");
+  }
+  10% {
+    background-image: url("../assets/crow-silhouette.png");
+  }
+  20% {
+    background-image: url("../assets/monkey-feeding.png");
+  }
+  30% {
+    background-image: url("../assets/daynight-sky.png");
+  }
+  40% {
+    background-image: url("../assets/shells.jpg");
+  }
+  100% {
+    display: none;
+  }
+}
+
+.container {
+  position: relative;
+  width: 420px;
+  border: #fff solid 2px;
+  border-radius: 4px;
+  height: 420px;
+}
+
+.title {
+  font-family: "Raleway", Arial, sans-serif;
+  color: #808B96;
+  position: absolute;
+  top: 45px;
+  left: 0;
+  width: 100%;
+  font-size: 2em;
+  font-weight: normal;
+  line-height: 1;
+}
+
+.credit {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  font-size: 0.9em;
+  text-align: left;
+}
+
+.book {
+  position: relative;
+  perspective: 630px;
+  perspective-origin: center 50px;
+  transform: scale(1.2);
+  filter: drop-shadow(0px 10px 5px rgba(0, 0, 0, 0.25));
+}
+
+.page {
+  width: 210px;
+  height: 300px;
+  background-color: #bbb;
+  position: absolute;
+  top: 0px;
+  right: 50%;
+  transform-origin: 100% 100%;
+  border: solid #555 2px;
+  background-size: 420px 300px;
+  background-position: center;
+}
+.page:nth-child(1) {
+  transform: rotateX(60deg) rotateY(3deg);
+}
+.page:nth-child(2) {
+  transform: rotateX(60deg) rotateY(4.5deg);
+}
+.page:nth-child(3) {
+  transform: rotateX(60deg) rotateY(6deg);
+  animation: nextPage 25s infinite -24s steps(1);
+  background-size: 420px 300px;
+  background-position: -2px -2px;
+}
+.page:nth-child(4) {
+  transform: rotateX(60deg) rotateY(177deg);
+}
+.page:nth-child(5) {
+  transform: rotateX(60deg) rotateY(175.5deg);
+}
+.page:nth-child(6) {
+  transform: rotateX(60deg) rotateY(174deg);
+  overflow: hidden;
+}
+.page:nth-child(6)::after {
+  content: "";
+  width: 210px;
+  height: 300px;
+  position: absolute;
+  top: 0px;
+  right: 0%;
+  transform-origin: center;
+  transform: rotateY(180deg);
+  animation: nextPage 25s -20s infinite steps(1);
+  background-size: 420px 300px;
+  background-position: 100% -2px;
+}
+@keyframes nextPage {
+  0% {
+    background-image: url("../assets/crimson-rail.jpg");
+  }
+  20% {
+    background-image: url("../assets/crow-silhouette.png");
+  }
+  40% {
+    background-image: url("../assets/monkey-feeding.png");
+  }
+  60% {
+    background-image: url("../assets/daynight-sky.png");
+  }
+  80% {
+    background-image: url("../assets/shells.jpg");
+  }
+}
+
+.gap {
+  width: 10px;
+  height: 300px;
+  background: none;
+  transform: rotateX(60deg);
+  transform-origin: bottom;
+  position: absolute;
+  top: 0px;
+  left: calc(50% - 5px);
+}
+.gap::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  background-color: #555;
+  width: 10px;
+  height: 5px;
+  border-radius: 50%;
+}
+
+.flip {
+  width: 32px;
+  height: 300px;
+  position: absolute;
+  top: 0px;
+  transform-origin: 100% 100%;
+  right: 100%;
+  border: solid #555;
+  border-width: 2px 0px;
+  perspective: 4200px;
+  perspective-origin: center;
+  transform-style: preserve-3d;
+  background-size: 420px 300px;
+}
+.flip::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0%;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+  background-size: 420px 300px;
+}
+.flip.flip1 {
+  right: 50%;
+  animation: flip1 5s infinite ease-in-out;
+  border-width: 2px 2px 2px 0;
+}
+.flip.flip1::after {
+  animation: nextFlip1 25s -20s infinite steps(1);
+}
+.flip:not(.flip1) {
+  right: calc(100% - 2px);
+  top: -2px;
+  transform-origin: right;
+  animation: flip2 5s ease-in-out infinite;
+}
+.flip.flip2::after {
+  animation: nextFlip2 25s -20s infinite steps(1);
+}
+.flip.flip3::after {
+  animation: nextFlip3 25s -20s infinite steps(1);
+}
+.flip.flip4::after {
+  animation: nextFlip4 25s -20s infinite steps(1);
+}
+.flip.flip5::after {
+  animation: nextFlip5 25s -20s infinite steps(1);
+}
+.flip.flip6::after {
+  animation: nextFlip6 25s -20s infinite steps(1);
+}
+.flip.flip7::after {
+  animation: nextFlip7 25s -20s infinite steps(1);
+}
+.flip.flip7 {
+  width: 30px;
+  border-width: 2px 0px 2px 2px;
+}
+.flip.flip7::after {
+  animation: nextFlip7 25s -20s infinite steps(1);
+}
+@keyframes flip1 {
+  0%,
+  20% {
+    transform: rotateX(60deg) rotateY(6deg);
+  }
+  80%,
+  100% {
+    transform: rotateX(60deg) rotateY(174deg);
+  }
+}
+@keyframes flip2 {
+  0%,
+  20% {
+    transform: rotateY(0deg) translateY(0px);
+  }
+  50% {
+    transform: rotateY(-15deg) translateY(0px);
+  }
+}
+
+@keyframes nextFlip1 {
+  0% {
+    background-image: url("../assets/crimson-rail.jpg");
+    background-position: -178px -2px;
+    transform: rotateY(0deg);
+  }
+  10% {
+    background-image: url("../assets/crow-silhouette.png");
+    background-position: -210px -2px;
+    transform: rotateY(180deg);
+  }
+  20% {
+    background-image: url("../assets/crow-silhouette.png");
+    background-position: -178px -2px;
+    transform: rotateY(0deg);
+  }
+  30% {
+    background-image: url("../assets/monkey-feeding.png");
+    background-position: -210px -2px;
+    transform: rotateY(180deg);
+  }
+  40% {
+    background-image: url("../assets/monkey-feeding.png");
+    background-position: -178px -2px;
+    transform: rotateY(0deg);
+  }
+  50% {
+    background-image: url("../assets/daynight-sky.png");
+    background-position: -210px -2px;
+    transform: rotateY(180deg);
+  }
+  60% {
+    background-image: url("../assets/daynight-sky.png");
+    background-position: -178px -2px;
+    transform: rotateY(0deg);
+  }
+  70% {
+    background-image: url("../assets/shells.jpg");
+    background-position: -210px -2px;
+    transform: rotateY(180deg);
+  }
+  80% {
+    background-image: url("../assets/shells.jpg");
+    background-position: -178px -2px;
+    transform: rotateY(0deg);
+  }
+  90% {
+    background-image: url("../assets/crimson-rail.jpg");
+    background-position: -210px -2px;
+    transform: rotateY(180deg);
+  }
+}
+@keyframes nextFlip2 {
+  0% {
+    background-image: url("../assets/crimson-rail.jpg");
+    background-position: -148px -2px;
+    transform: rotateY(0deg);
+  }
+  10.5% {
+    background-image: url("../assets/crow-silhouette.png");
+    background-position: -238px -2px;
+    transform: rotateY(180deg);
+  }
+  20% {
+    background-image: url("../assets/crow-silhouette.png");
+    background-position: -148px -2px;
+    transform: rotateY(0deg);
+  }
+  30.5% {
+    background-image: url("../assets/monkey-feeding.png");
+    background-position: -238px -2px;
+    transform: rotateY(180deg);
+  }
+  40% {
+    background-image: url("../assets/monkey-feeding.png");
+    background-position: -148px -2px;
+    transform: rotateY(0deg);
+  }
+  50.5% {
+    background-image: url("../assets/daynight-sky.png");
+    background-position: -238px -2px;
+    transform: rotateY(180deg);
+  }
+  60% {
+    background-image: url("../assets/daynight-sky.png");
+    background-position: -148px -2px;
+    transform: rotateY(0deg);
+  }
+  70.5% {
+    background-image: url("../assets/shells.jpg");
+    background-position: -238px -2px;
+    transform: rotateY(180deg);
+  }
+  80% {
+    background-image: url("../assets/shells.jpg");
+    background-position: -148px -2px;
+    transform: rotateY(0deg);
+  }
+  90.5% {
+    background-image: url("../assets/crimson-rail.jpg");
+    background-position: -238px -2px;
+    transform: rotateY(180deg);
+  }
+}
+@keyframes nextFlip3 {
+  0% {
+    background-image: url("../assets/crimson-rail.jpg");
+    background-position: -118px -2px;
+    transform: rotateY(0deg);
+  }
+  11% {
+    background-image: url("../assets/crow-silhouette.png");
+    background-position: -268px -2px;
+    transform: rotateY(180deg);
+  }
+  20% {
+    background-image: url("../assets/crow-silhouette.png");
+    background-position: -118px -2px;
+    transform: rotateY(0deg);
+  }
+  31% {
+    background-image: url("../assets/monkey-feeding.png");
+    background-position: -268px -2px;
+    transform: rotateY(180deg);
+  }
+  40% {
+    background-image: url("../assets/monkey-feeding.png");
+    background-position: -118px -2px;
+    transform: rotateY(0deg);
+  }
+  51% {
+    background-image: url("../assets/daynight-sky.png");
+    background-position: -268px -2px;
+    transform: rotateY(180deg);
+  }
+  60% {
+    background-image: url("../assets/daynight-sky.png");
+    background-position: -118px -2px;
+    transform: rotateY(0deg);
+  }
+  71% {
+    background-image: url("../assets/shells.jpg");
+    background-position: -268px -2px;
+    transform: rotateY(180deg);
+  }
+  80% {
+    background-image: url("../assets/shells.jpg");
+    background-position: -118px -2px;
+    transform: rotateY(0deg);
+  }
+  91% {
+    background-image: url("../assets/crimson-rail.jpg");
+    background-position: -268px -2px;
+    transform: rotateY(180deg);
+  }
+}
+@keyframes nextFlip4 {
+  0% {
+    background-image: url("../assets/crimson-rail.jpg");
+    background-position: -88px -2px;
+    transform: rotateY(0deg);
+  }
+  11.5% {
+    background-image: url("../assets/crow-silhouette.png");
+    background-position: -298px -2px;
+    transform: rotateY(180deg);
+  }
+  20% {
+    background-image: url("../assets/crow-silhouette.png");
+    background-position: -88px -2px;
+    transform: rotateY(0deg);
+  }
+  31.5% {
+    background-image: url("../assets/monkey-feeding.png");
+    background-position: -298px -2px;
+    transform: rotateY(180deg);
+  }
+  40% {
+    background-image: url("../assets/monkey-feeding.png");
+    background-position: -88px -2px;
+    transform: rotateY(0deg);
+  }
+  51.5% {
+    background-image: url("../assets/daynight-sky.png");
+    background-position: -298px -2px;
+    transform: rotateY(180deg);
+  }
+  60% {
+    background-image: url("../assets/daynight-sky.png");
+    background-position: -88px -2px;
+    transform: rotateY(0deg);
+  }
+  71.5% {
+    background-image: url("../assets/shells.jpg");
+    background-position: -298px -2px;
+    transform: rotateY(180deg);
+  }
+  80% {
+    background-image: url("../assets/shells.jpg");
+    background-position: -88px -2px;
+    transform: rotateY(0deg);
+  }
+  91.5% {
+    background-image: url("../assets/crimson-rail.jpg");
+    background-position: -298px -2px;
+    transform: rotateY(180deg);
+  }
+}
+@keyframes nextFlip5 {
+  0% {
+    background-image: url("../assets/crimson-rail.jpg");
+    background-position: -58px -2px;
+    transform: rotateY(0deg);
+  }
+  12% {
+    background-image: url("../assets/crow-silhouette.png");
+    background-position: -328px -2px;
+    transform: rotateY(180deg);
+  }
+  20% {
+    background-image: url("../assets/crow-silhouette.png");
+    background-position: -58px -2px;
+    transform: rotateY(0deg);
+  }
+  32% {
+    background-image: url("../assets/monkey-feeding.png");
+    background-position: -328px -2px;
+    transform: rotateY(180deg);
+  }
+  40% {
+    background-image: url("../assets/monkey-feeding.png");
+    background-position: -58px -2px;
+    transform: rotateY(0deg);
+  }
+  52% {
+    background-image: url("../assets/daynight-sky.png");
+    background-position: -328px -2px;
+    transform: rotateY(180deg);
+  }
+  60% {
+    background-image: url("../assets/daynight-sky.png");
+    background-position: -58px -2px;
+    transform: rotateY(0deg);
+  }
+  72% {
+    background-image: url("../assets/shells.jpg");
+    background-position: -328px -2px;
+    transform: rotateY(180deg);
+  }
+  80% {
+    background-image: url("../assets/shells.jpg");
+    background-position: -58px -2px;
+    transform: rotateY(0deg);
+  }
+  92% {
+    background-image: url("../assets/crimson-rail.jpg");
+    background-position: -328px -2px;
+    transform: rotateY(180deg);
+  }
+}
+@keyframes nextFlip6 {
+  0% {
+    background-image: url("../assets/crimson-rail.jpg");
+    background-position: -28px -2px;
+    transform: rotateY(0deg);
+  }
+  12.5% {
+    background-image: url("../assets/crow-silhouette.png");
+    background-position: -358px -2px;
+    transform: rotateY(180deg);
+  }
+  20% {
+    background-image: url("../assets/crow-silhouette.png");
+    background-position: -28px -2px;
+    transform: rotateY(0deg);
+  }
+  32.5% {
+    background-image: url("../assets/monkey-feeding.png");
+    background-position: -358px -2px;
+    transform: rotateY(180deg);
+  }
+  40% {
+    background-image: url("../assets/monkey-feeding.png");
+    background-position: -28px -2px;
+    transform: rotateY(0deg);
+  }
+  52.5% {
+    background-image: url("../assets/daynight-sky.png");
+    background-position: -358px -2px;
+    transform: rotateY(180deg);
+  }
+  60% {
+    background-image: url("../assets/daynight-sky.png");
+    background-position: -28px -2px;
+    transform: rotateY(0deg);
+  }
+  72.5% {
+    background-image: url("../assets/shells.jpg");
+    background-position: -358px -2px;
+    transform: rotateY(180deg);
+  }
+  80% {
+    background-image: url("../assets/shells.jpg");
+    background-position: -28px -2px;
+    transform: rotateY(0deg);
+  }
+  92.5% {
+    background-image: url("../assets/crimson-rail.jpg");
+    background-position: -358px -2px;
+    transform: rotateY(180deg);
+  }
+}
+@keyframes nextFlip7 {
+  0% {
+    background-image: url("../assets/crimson-rail.jpg");
+    background-position: -2px -2px;
+    transform: rotateY(0deg);
+  }
+  13% {
+    background-image: url("../assets/crow-silhouette.png");
+    background-position: -388px -2px;
+    transform: rotateY(180deg);
+  }
+  20% {
+    background-image: url("../assets/crow-silhouette.png");
+    background-position: -2px -2px;
+    transform: rotateY(0deg);
+  }
+  33% {
+    background-image: url("../assets/monkey-feeding.png");
+    background-position: -388px -2px;
+    transform: rotateY(180deg);
+  }
+  40% {
+    background-image: url("../assets/monkey-feeding.png");
+    background-position: -2px -2px;
+    transform: rotateY(0deg);
+  }
+  53% {
+    background-image: url("../assets/daynight-sky.png");
+    background-position: -388px -2px;
+    transform: rotateY(180deg);
+  }
+  60% {
+    background-image: url("../assets/daynight-sky.png");
+    background-position: -2px -2px;
+    transform: rotateY(0deg);
+  }
+  73% {
+    background-image: url("../assets/shells.jpg");
+    background-position: -388px -2px;
+    transform: rotateY(180deg);
+  }
+  80% {
+    background-image: url("../assets/shells.jpg");
+    background-position: -2px -2px;
+    transform: rotateY(0deg);
+  }
+  93% {
+    background-image: url("../assets/crimson-rail.jpg");
+    background-position: -388px -2px;
+    transform: rotateY(180deg);
+  }
 }
 </style>
