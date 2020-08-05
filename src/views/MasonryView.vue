@@ -6,7 +6,7 @@
       </header>
 
       <!-- Photo Grid -->
-      <div class="w3-row-padding w3-grayscale" style="margin-bottom:128px">
+      <div class="w3-row-padding" style="margin-bottom:128px">
         <div class="w3-half">
           <img src="../assets/crow-silhouette.png" style="width:100%" />
           <img src="../assets/crimson-rail.jpg" style="width:100%" />
